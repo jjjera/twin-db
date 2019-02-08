@@ -3,10 +3,6 @@ import {Card,CardBody,CardHeader,Table} from 'reactstrap';
 
 class MediaList extends Component {
 
-componentDidMount() {
-
-}
-
   render() {
     // const employees = this.props.employees;
     // const users = this.props.users;
@@ -17,16 +13,15 @@ componentDidMount() {
     return (
       <div className="animated fadeIn">
             <Card>
-              <CardHeader style={{color:'red'}}>List</CardHeader>
+              <CardHeader style={{color:'Green',width:1000, fontWeight: 'bold'}}>Play List!!</CardHeader>
               <CardBody>
                 <Table hover bordered striped responsive size="lg">
-                  <thead>
+                  <thead style={{color: 'blue'}}>
                     <tr>
                       <th>S.No</th>
-                      <th>Image</th>
-                      <th>Name</th>
-                      <th>Mobile no</th>
-                      <th>Role</th>
+                      <th>Artist</th>
+                      <th>Artist Image</th>
+                      <th>Songs</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -34,9 +29,25 @@ componentDidMount() {
                     return(
                     <tr key={key} style={{color: 'blue'}}>
                       <td>{index + 1}</td>
-                      <td><img src={data[key].profilePicture} alt="" style={{height: 200, width: 200}}/></td>                      <td>{data[key].name}</td>
-                      <td>{data[key].mobileNo}</td>
                       <td>{data[key].name}</td>
+                      <td>
+                        <img
+                          src={data[key].profilePicture}
+                          alt=""
+                          style={{height: 200, width: 200}}
+                        />
+                      </td>
+                      {data[key].audio ? (
+                        <td>
+                          <audio
+                            ref="audio_tag"
+                            src={data[key].audio}
+                            controls
+                          />
+                        </td>
+                      )
+                        : ('No Songs Available !')
+                      }
                     </tr>
                     );
                   })}

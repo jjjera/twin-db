@@ -8,8 +8,8 @@ import {connect} from 'react-redux';
 class User extends Component {
 
     handleSubmit = (values) => {
-      console.log('handleSubmit called',values);
-      console.log('props are',this.props);
+      // console.log('handleSubmit called',values);
+      // console.log('props are',this.props);
       this.props.dispatch(addImage(values, 'Users')).then((resp) => {
         values.isDeleted = false;
         let name = values.name.toLowerCase();

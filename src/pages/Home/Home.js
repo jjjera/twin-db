@@ -8,13 +8,13 @@ const Home = () => {
     return (
       <Router>
       <div>
-      <ul>
+      <ul class="list-unstyled">
         <li>
           <Link
             to="/employee"
             style={{textDecoration: 'none'}}
           >
-            EmployeeForm
+            Tap To Upload Song
           </Link>
         </li>
         <li>
@@ -22,7 +22,7 @@ const Home = () => {
             to="/user"
             style={{textDecoration: 'none'}}
           >
-            UserForm
+            User Form
           </Link>
         </li>
         <li>
@@ -30,7 +30,7 @@ const Home = () => {
             to="/preview"
             style={{textDecoration: 'none'}}
           >
-            Preview Form
+            Tap To Play Songs !!
           </Link>
         </li>
       </ul>

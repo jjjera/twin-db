@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Col,Card,CardBody,Button,FormGroup,Label} from 'reactstrap';
+import {Col,Card,CardBody,Button,FormGroup} from 'reactstrap';
 import { Field, reduxForm } from 'redux-form';
 import ImageUpload from '../../components/ImageUpload';
 import FormInput from '../../components/FormInput';
@@ -24,55 +24,67 @@ import FormInput from '../../components/FormInput';
        <form onSubmit={handleSubmit}>
         <Col sm="12">
           <Card className="card-border">
-          <h1 style={{color:'blue'}}>Employee Form</h1>
-            <CardBody>
-              <FormGroup row className="my-0">
-                <Col xs="12" lg="10">
+          <h1 style={{color:'blue'}}>Upload Form</h1>
+            <CardBody style={{color:'Green',width:1000, fontWeight: 'bold'}}>
+              <FormGroup row>
+                <Col xs="12" lg="6">
                   <Field
                     type="file"
                     id="file-input"
                     name="profilePicture"
+                    label="Select Album Image"
                     accept="image/*"
                     component={ImageUpload}
                     onChange={(event) => this.uploadImage(event)}
                   />
                 </Col>
-              </FormGroup>
-              <FormGroup>
-                <Label>Upload Audio File</Label>
-                <br/>
-                <Field
-                name="audio"
-                type="file"
-                accept="audio/*"
-                component={ImageUpload}
-                />
-                </FormGroup>
-              <Field
-                name="name"
-                type="text"
-                component={FormInput}
-                label="Name *"
-                inputPlaceHolder="Enter Name"
-              />
-              <FormGroup row>
                 <Col xs="12" lg="6">
-                  <Field
-                    name="fatherName"
-                    type="text"
-                    component={FormInput}
-                    label="Father Name *"
-                    inputPlaceHolder="Enter Father Name"
-                  />
+                    <Field
+                    name="audio"
+                    label="Add Song"
+                    type="file"
+                    accept="audio/*"
+                    component={ImageUpload}
+                    />
                 </Col>
+              </FormGroup>
+              <FormGroup row>
+                    <Col xs="12" lg="6">
+                   <Field
+                     name="name"
+                     type="text"
+                     component={FormInput}
+                     inputPlaceHolder="Artist Name"
+                   />
+                    </Col>
+                    <Col xs="12" lg="6">
+                      <Field
+                        name="fatherName"
+                        type="text"
+                        component={FormInput}
+                        // label="Father Name"
+                        inputPlaceHolder="Album Name"
+                      />
+                    </Col>
+              </FormGroup>
+              <FormGroup row>
                 <Col xs="12" lg="6">
                   <Field
                     name="mobileNo"
                     type="text"
                     component={FormInput}
-                    label="Mobile No *"
-                    inputPlaceHolder="+91"
+                    // label="Mobile No"
+                    inputPlaceHolder="Song Number"
                   />
+                </Col>
+                <Col xs="12" lg="6">
+                <Field
+                  name="emailId"
+                  type="email"
+                  component={FormInput}
+                  // label="Email ID"
+                  inputPlaceHolder="Enter Email ID"
+                />
                 </Col>
               </FormGroup>
               <FormGroup row>
@@ -81,7 +93,8 @@ import FormInput from '../../components/FormInput';
                     name="empDob"
                     type="date"
                     component={FormInput}
-                    label="Date of Birth"
+                    inputPlaceHolder="Date of Release"
+                    // label="Date of Release"
                   />
                 </Col>
                 <Col xs="12" lg="6">
@@ -89,19 +102,8 @@ import FormInput from '../../components/FormInput';
                     name="empAge"
                     type="text"
                     component={FormInput}
-                    label="Age"
-                    inputPlaceHolder="Enter Age"
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Col xs="12" lg="6">
-                  <Field
-                    name="emailId"
-                    type="email"
-                    component={FormInput}
-                    label="Email ID"
-                    inputPlaceHolder="Enter Email ID"
+                    // label="Age"
+                    inputPlaceHolder="Number Of Download"
                   />
                 </Col>
               </FormGroup>
@@ -109,9 +111,7 @@ import FormInput from '../../components/FormInput';
             <div style={{ paddingBottom: 30 }}>
               <Button
                 color="primary"
-                className="btn-pill pull-right"
                 type="save"
-                style={{ marginRight: '20px' }}
               >
                 Save
               </Button>
