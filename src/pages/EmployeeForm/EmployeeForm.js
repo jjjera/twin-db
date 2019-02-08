@@ -3,6 +3,8 @@ import {Col,Card,CardBody,Button,FormGroup} from 'reactstrap';
 import { Field, reduxForm } from 'redux-form';
 import ImageUpload from '../../components/ImageUpload';
 import FormInput from '../../components/FormInput';
+import {captialize, audioLength} from '../../lib/normalize';
+import {alphaNumberic, name, songNumber} from '../../lib/validation';
 
  class EmployeeForm extends Component{
 
@@ -55,6 +57,8 @@ import FormInput from '../../components/FormInput';
                      type="text"
                      component={FormInput}
                      inputPlaceHolder="Artist Name"
+                     validate={[alphaNumberic, name]}
+                     normalize={captialize}
                    />
                     </Col>
                     <Col xs="12" lg="6">
@@ -64,6 +68,8 @@ import FormInput from '../../components/FormInput';
                         component={FormInput}
                         // label="Father Name"
                         inputPlaceHolder="Album Name"
+                        validate={[alphaNumberic, name]}
+                        normalize={captialize}
                       />
                     </Col>
               </FormGroup>
@@ -75,6 +81,8 @@ import FormInput from '../../components/FormInput';
                     component={FormInput}
                     // label="Mobile No"
                     inputPlaceHolder="Song Number"
+                    validate={songNumber}
+                    normalize={audioLength}
                   />
                 </Col>
                 <Col xs="12" lg="6">
