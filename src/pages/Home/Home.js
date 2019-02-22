@@ -3,6 +3,7 @@ import User from '../UserForm';
 import Employee from '../EmployeeForm';
 import List from '../List';
 import {BrowserRouter as Router , Route, Link} from 'react-router-dom';
+import {askForPermissioToReceiveNotifications} from '../../pushNotification/push-notification';
 
 const Home = () => {
     return (
@@ -38,6 +39,10 @@ const Home = () => {
         <Route path="/employee" component={Employee}/>
         <Route path="/user" component={User}/>
         <Route path="/preview" component={List} />
+        <br/>
+          <button onClick={askForPermissioToReceiveNotifications} >
+            Click Here To Receive Notifications
+          </button>
       </div>
       </Router>
     );

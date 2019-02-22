@@ -4,6 +4,8 @@ import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
 import {fbConfig} from '../config';
+import '@firebase/messaging';
+
 
 //Storing Firebase developement configuration(dash board)
 const config = fbConfig.devConfig;
@@ -23,5 +25,11 @@ const realTime  = firebase.database();
 const storage = firebase.storage();
 
 // fireStore.settings({timestampsInSnapshots: true});
+
+navigator.serviceWorker
+    .register('/my-sw.js')
+    .then((registration) => {
+      firebase.messaging().useServiceWorker(registration);
+    });
 
 export {realTime, db, storage};

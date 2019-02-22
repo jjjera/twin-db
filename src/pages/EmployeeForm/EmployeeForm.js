@@ -5,6 +5,7 @@ import ImageUpload from '../../components/ImageUpload';
 import FormInput from '../../components/FormInput';
 import {captialize, audioLength} from '../../lib/normalize';
 import {alphaNumberic, name, songNumber} from '../../lib/validation';
+import validate from './validate';
 
  class EmployeeForm extends Component{
 
@@ -133,5 +134,6 @@ import {alphaNumberic, name, songNumber} from '../../lib/validation';
  }
 
 export default reduxForm({
-  form: 'employee'
+  form: 'employee',
+  validate
 })(EmployeeForm);
